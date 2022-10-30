@@ -44,12 +44,14 @@
                                 </div>
                             </div>
                         </div>
-                        <button @click="startProcess"
+                        @if(!$startedAdmission)
+                        <button @click="startProcess" x-show="!started"
                             type="button"
                             class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition
                             duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline">
                             Start Admission
                         </button>
+                        @endif
                         <x-messages :message="$message"/>
                     </div>
                 </div>
@@ -82,7 +84,7 @@
                                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                                                     <x-table-td :text="$applicant->student->name"/>
                                                     <x-table-td :text="$applicant->student->address"/>
-                                                    <x-table-td :text="$course->status ? 'Confirmed' : 'Not Confirmed'"/>
+                                                    <x-table-td :text="$applicant->status ? 'Confirmed' : 'Not Confirmed'"/>
 
                                                 </tr>
                                             @empty
@@ -107,7 +109,9 @@
         //     this.message = event.detail.message
         //     console.log(this.message)
         // })
-        // window.addEventListener('livewire:load', function () {
+        //  window.addEventListener('livewire:load', function () {
+        //      console.log(111);
+
 
         function admissionProcess(){
             return {
@@ -122,6 +126,7 @@
                 showMessage : true,
                 tokenName : '{{ $course->name }}',
                 tokenSymbol : '{{ \Illuminate\Support\Str::initials($course->name) }}',
+                started : false,
                 getAmount() {
                     return 1;
                 },
@@ -134,10 +139,13 @@
                     return this.tokenId;
                 },
                 admissionCompleted(student){
-                  @this.notifyAdmissionCompletion(student);
+                  @this.notifyAdmissionCompletion(Window.Reach.formatAddress(student));
                 },
-                notifyStudent(flag){
+                notifyStudent(flag, token){
                     if(flag) {
+                        // console.log(this.tokenId);
+                        this.started = true;
+                        // @this.updateToken(this.tokenId);
                         console.log('Success : Notify student');
                     }
                     else console.log('Error : Notify student');
@@ -151,7 +159,7 @@
 
                     Window.REAHCBACKEND.University(this.contract, Object({
                         university : this.university,
-                        price : this.price,
+                        price : Window.Reach.parseCurrency(this.price),
                         getAmount : this.getAmount,
                         numberOfStudents : this.numberOfStudents,
                         deadline : this.deadline,
@@ -161,7 +169,7 @@
                         admissionCompleted : this.admissionCompleted
                     }));
                     this.contractInfo = JSON.stringify( await this.contract.getInfo(), null, 2);
-                    @this.startProcess(this.contractInfo);
+                    @this.startProcess(this.contractInfo, this.tokenId.toString());
                 }
             }
         }

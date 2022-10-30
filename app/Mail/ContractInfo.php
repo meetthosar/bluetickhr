@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\CourseApplicant;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -19,7 +20,7 @@ class ContractInfo extends Mailable
      *
      * @return void
      */
-    public function __construct(public $contractInfo, public User $student)
+    public function __construct(public $contractInfo, public CourseApplicant $courseApplicant, public string $token)
     {
         //
     }
@@ -47,7 +48,8 @@ class ContractInfo extends Mailable
             markdown: 'emails.contract.info',
             with: [
                 'contractInfo' => $this->contractInfo,
-                'student' => $this->student
+                'courseApplicant' => $this->courseApplicant,
+                'token' => $this->token
             ]
         );
     }

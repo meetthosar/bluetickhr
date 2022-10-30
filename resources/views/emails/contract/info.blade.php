@@ -1,12 +1,15 @@
 <x-mail::message>
-Dear {{ $student->name }},
+Dear {{ $courseApplicant->student->name }},
 
 Admission process has been started.
 
     Use this code to join the Admission process :
-    {{ $contractInfo }}
 
-<x-mail::button :url="route('login')">
+    Contract Info : {{ $contractInfo }}
+
+    Token ID : {{ $token }}
+
+<x-mail::button :url="route('apply',['courseApplicant' => $courseApplicant->id])">
 Click here to join
 </x-mail::button>
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('student_id');
+            $table->string('token_id', 20)->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
 

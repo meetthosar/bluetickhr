@@ -39,3 +39,7 @@ Route::middleware([
         return view('admissions.apply', compact('courseApplicant'));
     })->name('apply');
 });
+
+Route::get('/resume/{user}', function (\App\Models\User $user){
+    return view('resume.index',compact('user'));
+})->name('resume');

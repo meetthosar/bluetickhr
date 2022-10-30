@@ -14,7 +14,7 @@ class Course extends Model
 
     protected $table = 'courses';
 
-    protected $fillable = ['user_id','name','duration','number_exams','skills','seats','price'];
+    protected $fillable = ['user_id','name','duration','number_exams','skills','seats','price','admission_started'];
 
     public static array $rules = [
         'user_id' => 'required|integer',
