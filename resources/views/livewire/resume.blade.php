@@ -162,6 +162,8 @@
                                     <li>
                                         <div class="text-teal-600">{{ $course->course->name }}</div>
                                         <div class="text-gray-500 text-xs">{{ $course->created_at->format('M Y') }}</div>
+                                        @if(!$verified)<a href="#" wire:click="verify({{ $course->id }})">Verify</a>
+                                        @else <span class="text-blue-600 font-bold">Verified</span> @endif
                                     </li>
                                     @endforeach
 

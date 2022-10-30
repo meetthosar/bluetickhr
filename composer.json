@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
         "meetthosar/web3walletauth": "dev-main",
+        "rootsoft/algorand-php": "^0.0.10",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
