@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
@@ -30,7 +31,7 @@ class Course extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function courseTokens()
     {
@@ -38,7 +39,7 @@ class Course extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function studentCourses()
     {
@@ -53,4 +54,12 @@ class Course extends Model
         return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
 
+
+    /**
+     * @return HasMany
+     */
+    public function applicants(): HasMany
+    {
+        return $this->hasMany(CourseApplicant::class, 'course_id', 'id');
+    }
 }

@@ -40,12 +40,13 @@
                                             <x-table-td :text="$course->duration"/>
                                             <x-table-td :text="$course->seats"/>
                                             <x-table-td :text="$course->price"/>
-                                            <x-table-td :text="implode(',',array_keys($course->skills))"/>
+                                            <x-table-td :text="\Str::words(implode(', ', $skillsCollection->whereIn('id',array_keys($course->skills))->pluck('name')->toArray()), 2)"/>
                                             <x-table-td :text="$course->open ? 'Yes' : 'No'"/>
                                             <x-table-td :text="$course->admission_started ? 'Yes' : 'No'"/>
 
                                             <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline" wire:click="toggleApplication({{ $course->id }}, {{ $course->open }})">{{ $course->open? 'Stop' : 'Start'}} Application</a> |
+                                                <a href="{{ route('admissions',['course' =>$course->id ]) }}" class="text-blue-600 dark:text-blue-500 hover:underline">Start Admission</a>
                                             </td>
                                         </tr>
                                     @empty

@@ -25,7 +25,7 @@ class Courses extends Component
     public function render()
     {
         $courses = Auth::user()->courses()->paginate(10);
-        $skillsCollection = Skill::all()->pluck('name','id');
+        $skillsCollection = Skill::all();
         return view('livewire.courses', compact('courses','skillsCollection'));
     }
 
@@ -46,4 +46,13 @@ class Courses extends Component
     }
 
 
+    public function toggleApplication($id, $current)
+    {
+        Course::where('id', $id )->update(['open' => $current ? 0 : 1]);
+    }
+
+    public function startAdmission($id)
+    {
+        Course::where('id', $id )->update(['admission_started' => 1]);
+    }
 }

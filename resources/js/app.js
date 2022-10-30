@@ -16,3 +16,4 @@ Window.REAHCBACKEND = reachBackend;
 
 Window.Reach.setWalletFallback(Window.Reach.walletFallback({
     providerEnv: 'TestNet', MyAlgoConnect }));
+

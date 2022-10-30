@@ -16,14 +16,14 @@
             @csrf
 
             <div>
-                @livewire('web3-login-logout', ['loginText' => __('Log in as University'), 'participant' => 'University'], key('University'))
+{{--                @livewire('web3-login-logout', ['loginText' => __('Log in as University'), 'participant' => 'University'], key('University'))--}}
 
                 {{--<x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />--}}
             </div>
 
             <div class="mt-4">
-{{--                @livewire('web3-login-logout', ['loginText' => __('Log in as Student'), 'participant' => 'Student'], key('Student'))--}}
+                @livewire('web3-login-logout', ['loginText' => __('Log in as Student'), 'participant' => 'Student'], key('Student'))
 {{--                <livewire:Web3WalletAuth::web3-login-logout :loginText=" __('Log in as Student')" :participant="'Student'"/>--}}
                 {{--<x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />--}}

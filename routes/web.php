@@ -29,4 +29,13 @@ Route::middleware([
     Route::get('/courses', function () {
         return view('courses.index');
     })->name('courses');
+
+    Route::get('/admission/{course}', function (\App\Models\Course $course){
+
+        return view('admissions.index', compact('course'));
+    })->name('admissions');
+
+    Route::get('/apply/{courseApplicant}', function (\App\Models\CourseApplicant $courseApplicant) {
+        return view('admissions.apply', compact('courseApplicant'));
+    })->name('apply');
 });

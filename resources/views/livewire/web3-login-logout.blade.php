@@ -11,8 +11,7 @@
                 account : null,
                 login : async () => {
                     this.account = await Window.Reach.getDefaultAccount();
-
-                @this.login(this.account);
+                    @this.login(this.account);
                 },
                 logout : () => {
                     // Window.Reach.disconnect();

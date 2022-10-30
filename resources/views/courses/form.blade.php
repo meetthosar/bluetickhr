@@ -32,10 +32,10 @@
                 <label for="cvc" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Skills</label>
                 <div class="relative mb-5 mt-2">
 
-                    @foreach($skillsCollection as $key => $skill)
+                    @foreach($skillsCollection as $skill)
                         <label for="remember" class="">
-                            <input type="checkbox"  wire:model.defer="skills.{{$skill}}" id="remember" class="w-4 h-4 border-slate-200 focus:bg-indigo-600">
-                            {{ $skill }}
+                            <input type="checkbox"  wire:model.defer="skills.{{$skill->id}}" class="w-4 h-4 border-slate-200 focus:bg-indigo-600">
+                            {{ $skill->name }}
                         </label>
                     @endforeach
                         @error('skills') <p class="text-sm text-red-600 dark:text-red-500">{{ $message }}</p> @enderror
