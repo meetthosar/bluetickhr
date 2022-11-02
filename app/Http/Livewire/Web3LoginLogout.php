@@ -21,6 +21,7 @@ class Web3LoginLogout extends Component
     public string $logoutClass = '';
 
     public string|null $participant = null;
+    public string|null $participant_1 = null;
 
 
     public function render()
@@ -29,6 +30,7 @@ class Web3LoginLogout extends Component
     }
 
     public function login($account){
+
         $address = $account['networkAccount']['addr'];
         $user = User::where('address' , $address )->first();
         if(is_null($user)) {
@@ -37,7 +39,7 @@ class Web3LoginLogout extends Component
                 'address' => $address,
                 'password' => Hash::make(Str::random(10))
             ]);
-            $user->assignRole($this->participant);
+            $user->assignRole($this->participant_1??$this->participant);
         }
         \session(['web3_account' => $account]);
         Auth::login($user);

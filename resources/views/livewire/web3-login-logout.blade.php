@@ -1,4 +1,4 @@
-<div x-data="loginLogout()" wire:key="{{ $participant }}">
+<div x-data="loginLogout()">
     <button @click="login()" type="button"
             class="{{ $loginClass }}">
         {{$loginText}}
@@ -6,7 +6,6 @@
 <script>
     // document.addEventListener('livewire:load',function () {
         function loginLogout() {
-            console.log(111);
             return {
                 account : null,
                 login : async () => {

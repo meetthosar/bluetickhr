@@ -43,3 +43,11 @@ Route::middleware([
 Route::get('/resume/{user}', function (\App\Models\User $user){
     return view('resume.index',compact('user'));
 })->name('resume');
+
+Route::get('/universityLogin', function (){
+   return view('login_university');
+});
+
+Route::get('/studentLogin', function (){
+    return view('login_student');
+});
