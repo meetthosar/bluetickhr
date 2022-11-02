@@ -18,7 +18,7 @@ For more details please check article <a href="https://docs.google.com/document/
 
 Smart contract is written in `Reach`.  Please check [Reach Code](https://github.com/meetthosar/bluetickhr/tree/main/rsh_file) 
 
-You will find `build` file [here](https://github.com/meetthosar/bluetickhr/tree/main/resources/js/build){:target="_blank"} 
+You will find `build` file [here](https://github.com/meetthosar/bluetickhr/tree/main/resources/js/build) 
 
 Front end JS library : `Alipine`
 
