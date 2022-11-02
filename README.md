@@ -18,7 +18,7 @@ For more details please check article [here](https://docs.google.com/document/d/
 
 Smart contract is written in `Reach`.  Please check [Reach Code](https://github.com/meetthosar/bluetickhr/tree/main/rsh_file) 
 
-You will find `build` file [here](https://github.com/meetthosar/bluetickhr/tree/main/resources/js/build) 
+You will find `build` file [here](https://github.com/meetthosar/bluetickhr/tree/main/resources/js/build){:target="_blank"} 
 
 Front end JS library : `Alipine`
 
@@ -56,5 +56,5 @@ First browser open `University` area with [/universityLogin] link
 
 Second browser open `Student` area with [/studentLogin] link 
 
-For further details you can check this [Demo](https://youtu.be/oW1-2NjIGzw) video.
+For further details you can check this [Demo](https://youtu.be/oW1-2NjIGzw){:target="_blank"} video.
 
