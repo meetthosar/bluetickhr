@@ -12,7 +12,7 @@ who owns it. Partnering with Reach and Verida.io to build on the
 Algorand Blockchain, Blue Tick HR will have verified credentials 
 which can be released to the employer and can be de-identified to 
 reduce recruitment bias. 
-For more details please check article [here](https://docs.google.com/document/d/15_iPheKXYwDaNtkiPRZycu1TAiQAFBNhjbN0pOnGcIE/edit#) 
+For more details please check article <a href="https://docs.google.com/document/d/15_iPheKXYwDaNtkiPRZycu1TAiQAFBNhjbN0pOnGcIE/edit#" target="_blank">here</a>  
 
 ## Tech Stack
 
@@ -56,5 +56,5 @@ First browser open `University` area with [/universityLogin] link
 
 Second browser open `Student` area with [/studentLogin] link 
 
-For further details you can check this [Demo](https://youtu.be/oW1-2NjIGzw){:target="_blank"} video.
+For further details you can check this <a href="https://youtu.be/oW1-2NjIGzw" target="_blank">Demo</a> video.
 
