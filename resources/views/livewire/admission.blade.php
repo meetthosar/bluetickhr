@@ -1,5 +1,4 @@
 <div class="bg-gray-100">
-
     <section  x-data="admissionProcess" wire:ignore.self>
         <section class="text-gray-600 body-font">
             <div class="container px-5 py-12 mx-auto">
@@ -152,10 +151,10 @@
                 },
                 async startProcess(){
                     this.deployer = await Window.Reach.getDefaultAccount(Window.Reach.parseCurrency(1000));
+
                     this.contract = await this.deployer.contract(Window.REAHCBACKEND);
                     const token = await Window.Reach.launchToken(this.deployer, this.tokenName, this.tokenSymbol, {supply : this.numberOfStudents});
                     this.tokenId =  token.id;
-                    console.log(this.tokenId);
 
                     Window.REAHCBACKEND.University(this.contract, Object({
                         university : this.university,
